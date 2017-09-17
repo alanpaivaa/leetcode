@@ -4,7 +4,7 @@ class ListNode(object):
         self.val = x
         self.next = None
 
-
+#my solution 496 ms is using the hash table is not the best solution
 class Solution(object):
     def getIntersectionNode(self, headA, headB):
         nodes_dict = {}
@@ -23,19 +23,45 @@ class Solution(object):
             nextNodeB = nextNodeB.next
         return None
 
+''' #solution with a set (implemented with hashtable) instead a dict, because the keys doesn't matter
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        c=set()
+        while headA:
+            c.add(headA)
+            headA=headA.next
+        while headB:
+            if headB in c:
+                return headB
+            else:
+                headB=headB.next
+'''
 
-        '''
-        while nextNodeA != None:
-            while nextNodeB != None:
-                if nextNodeA is nextNodeB:
-                    return nextNodeA
-                nextNodeB = nextNodeB.next
-            nextNodeA = nextNodeA.next
-            nextNodeB = headB
-        return None
+''' #solution with two pointers is the best, because the memory is always O(1)
+class Solution(object):
+    def getIntersectionNode(self, headA, headB):
+        """
+        :type head1, head1: ListNode
+        :rtype: ListNode
+        """
+        if headA is None or headB is None:
+            return None
 
+        pa = headA # 2 pointers
+        pb = headB
 
+        while pa is not pb:
+            # if either pointer hits the end, switch head and continue the second traversal,
+            # if not hit the end, just move on to next
+            pa = headB if pa is None else pa.next
+            pb = headA if pb is None else pb.next
 
+        return pa
+'''
 
 #Test Solution
 node1 = ListNode(1)
