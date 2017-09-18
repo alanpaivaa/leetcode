@@ -46,4 +46,21 @@ class Solution(object):
         return z
 '''
 
+'''
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        strX = str(abs(x))[::-1]
+        if x < 0:
+            x = 0-int(strX)
+        else:
+            x = int(strX)
+        if abs(x) < 2**31:
+            return x
+        else:
+            return 0
+'''
 print(Solution().reverse(1563847412))
