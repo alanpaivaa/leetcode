@@ -1,1 +1,1 @@
-![alt text](https://github.com/ajeferson/leetcode/blob/master/401/lma/submission.png "Submission details")
+![alt text](https://github.com/ajeferson/leetcode/blob/master/401/levima/submission.png "Submission details")
