@@ -22,10 +22,11 @@ class Solution(object):
                 nodeA.next = nodeA.next.next
             else:
                 nodeA = nodeA.next
+
         if head.val is val:
             head = head.next
-        return head
 
+        return head
 
 ''' best solution
 class Solution(object):
